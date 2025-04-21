@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:107806a042684c407077b9c129c6fe716e28fcc43eac4ac1e4c42f7ffb3b455a
-size 955
+// Code by: @gaetanslrt
+
+import 'package:flutter/material.dart';
+import 'package:flame/game.dart';
+import 'package:flutter/services.dart';
+import 'combat_game.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Forcer le mode paysage
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
+
+  // Activer le mode fullscreen
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+
+  runApp(
+    GameWidget(
+      game: CombatGame(),
+      overlayBuilderMap: {
+        'gameOver': (context, game) {
+          final combatGame = game as CombatGame;
+          return GameOverOverlay(
+            score: combatGame.score,
+            wave: combatGame.currentWave,
+            onRestart: () {
+              combatGame.restartGame();
+              game.overlays.remove('gameOver');
+            },
+          );
+        },
+      },
+    ),
+  );
+}
