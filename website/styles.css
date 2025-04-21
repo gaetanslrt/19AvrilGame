@@ -1,3 +1,94 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3f30fe84a895771c7878a3a72e55e72b00b4144352e5e620f42c2dc65c63eb0c
-size 1896
+/* Code by: @gaetanslrt */
+
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+    overflow: hidden;
+  }
+  
+  /* Video Background */
+  #bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que la vidéo couvre l'écran sans déformation */
+    z-index: -1; /* Place la vidéo derrière tout */
+    filter: brightness(0.7); /* Assombrit la vidéo pour améliorer la lisibilité du texte */
+  }
+  
+  /* Content */
+  .content {
+    position: fixed; /* Changé de absolute à fixed pour garantir le centrage */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre horizontalement et verticalement */
+    width: 100%;
+    max-width: 600px; /* Limite la largeur */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    z-index: 10; /* Assure que le contenu est au-dessus de la vidéo */
+  }
+  
+  /* Text and Button */
+  .content h1 {
+    font-size: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .content p {
+    font-size: 45px;
+    margin-bottom: 15px;
+  }
+  
+  #myBtn {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background: orange;
+    color: black;
+    font-style: bold;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 2px black;
+  }
+  
+  #myBtn:hover {
+    background: lightblue;
+    color: #000;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .content {
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    .content h1 {
+      font-size: 80px!important;
+    }
+  
+    .content p {
+      font-size: 40px!important;
+    }
+  }
