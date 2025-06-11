@@ -1,7 +1,7 @@
 # 19AvrilGame
 
-# About
+## About
 Unlimited zombies waves 2d mobile game (made in 1 day)
 
-# Follow Me
+## Follow Me
 Twitter/X : @gaetanslrt (https://x.com/gaetanslrt)
